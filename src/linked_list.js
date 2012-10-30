@@ -9,13 +9,13 @@ LinkedList.prototype = {
 
   constructor: LinkedList,
 
-  add: function(element, index) {
+  add: function(data, index) {
     if (index < 0 || (index !== 0 && !this.get(index - 1))) {
       throw new Error("[LinkedList] #add - " + index + " is out of range");
     }
 
     this._length = null;
-    var node = new LinkedList.Node(element);
+    var node = new LinkedList.Node(data);
     if (!this._head) {
       this._head = this._tail = node;
 
@@ -33,19 +33,19 @@ LinkedList.prototype = {
     }
   },
 
-  addAll: function(elementsArray) {
-    for (var i = 0; i < elementsArray.length; i++) {
-      this.addLast(elementsArray[i]);
+  addAll: function(array) {
+    for (var i = 0; i < array.length; i++) {
+      this.addLast(array[i]);
     }
   },
 
-  addFirst: function(element) {
-    this.add(element, 0);
+  addFirst: function(data) {
+    this.add(data, 0);
   },
 
-  addLast: function(element) {
+  addLast: function(data) {
     this._length = null;
-    var node = new LinkedList.Node(element);
+    var node = new LinkedList.Node(data);
     if (!this._tail) {
       this._head = this._tail = node;
 
@@ -59,10 +59,10 @@ LinkedList.prototype = {
     this._head = this._tail = this._length = null;
   },
 
-  contains: function(element) {
+  contains: function(data) {
     var node = this._head;
     while(node) {
-      if (node.data === element) {
+      if (node.data === data) {
         return true;
       }
       node = node.next;
@@ -146,9 +146,8 @@ LinkedList.prototype = {
 
 }
 
-LinkedList.Node = function(data, next) {
+LinkedList.Node = function(data) {
   this.data = data;
-  this.next = next;
 }
 
 LinkedList.Node.prototype = {
