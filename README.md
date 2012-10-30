@@ -32,6 +32,14 @@ new LinkedList();
 new BinaryTree();
 ````
 
+````javascript
+var comparator = new BinaryTree.Comparator(function(v1, v2) {
+  return v1 === 1 ? 0 : -1;
+});
+
+new BinaryTree(comparator);
+````
+
 ### Methods
 
 * add
