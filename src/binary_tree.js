@@ -183,6 +183,8 @@ BinaryTree.Node.prototype = {
   right: null,
   parent: null,
 
+  constructor: BinaryTree.Node,
+
   isLeaf: function() {
     return !this.left && !this.right;
   },

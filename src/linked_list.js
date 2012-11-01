@@ -152,5 +152,7 @@ LinkedList.Node = function(data) {
 
 LinkedList.Node.prototype = {
   next: null,
-  data: null
+  data: null,
+
+  constructor: LinkedList.Node
 }
